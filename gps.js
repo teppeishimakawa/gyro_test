@@ -15,19 +15,22 @@ window.addEventListener("deviceorientation", function(e)
     beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
     gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
  });
+
+
 }
 
 
   var timer = window.setInterval(function()
 {
  displayData();
+ requestPermission();
 }, 33);
 
 
 
 function displayData()
 {
-    var txt = document.getElementById("txt");
+    var txt = document.getElementById("txt1");
     txt.innerHTML = "alpha: " + alpha + "<br>"
                   + "beta:  " + beta  + "<br>"
                   + "gamma: " + gamma;
@@ -46,6 +49,7 @@ function displayData()
         beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
         gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
        });
+
       }
     }).catch(console.error);
   };
