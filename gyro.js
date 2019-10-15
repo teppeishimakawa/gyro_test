@@ -24,7 +24,7 @@ window.addEventListener("deviceorientation", function(e)
 {
  displayData();
  //requestPermission();
-}, 33);
+}, 1000);
 
 
 
