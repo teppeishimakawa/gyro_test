@@ -23,7 +23,7 @@ window.addEventListener("deviceorientation", function(e)
   var timer = window.setInterval(function()
 {
  displayData();
- requestPermission();
+ //requestPermission();
 }, 33);
 
 
