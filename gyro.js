@@ -66,6 +66,8 @@ var timer = window.setInterval(function()
 
 
 
+
+
 function pixel()
 {
 
@@ -97,13 +99,6 @@ var canvas = document.getElementById('canvas');
     document.getElementById('video').play();
 
 var context = canvas.getContext('2d');
-
-
-
-document.getElementById('btnPlay').onclick = function ()
-    {
-    document.getElementById('video').play();
-    };
 
 
 
@@ -237,16 +232,5 @@ setInterval(function()
     };
 
 
-
-    var distance = document.getElementById('distance');
-    distance.addEventListener('change', function () {
-        colorDistance = this.value;
-        console.log(colorDistance);
-    });
-
-    document.getElementById("quality").addEventListener('change', function()
-    {
-    seido=parseInt(document.getElementById("quality").value);
-    });
 }
 
