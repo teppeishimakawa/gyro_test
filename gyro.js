@@ -69,6 +69,10 @@ var timer = window.setInterval(function()
 function pixel()
 {
 
+var colorDistance=10;
+var seido=4;
+
+
 var wid=window.innerWidth;
 var hei=window.innerHeight;
 
@@ -80,7 +84,6 @@ var rectHei=10;
 //測定精度。4で全pixel解析,64で16pixelごとに解析
 var frame=0;
 var count=0;
-//var seido=4;
 
 
 //input video
