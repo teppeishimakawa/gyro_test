@@ -6,6 +6,7 @@ if (typeof DeviceOrientationEvent.requestPermission === 'function')
 {
 // iOS 13+
 document.getElementById("ios13btn").style.visibility ="visible";
+alert("ios13");
 //popupOpen("requestPermissionPopup");
 } else
 {
