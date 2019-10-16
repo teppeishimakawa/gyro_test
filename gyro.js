@@ -18,13 +18,6 @@ window.addEventListener("deviceorientation", function(e)
 }
 
 
-  var timer = window.setInterval(function()
-{
- displayData();
-}, 1000);
-
-
-
 function displayData()
 {
     var txt = document.getElementById("txt1");
@@ -50,3 +43,9 @@ function displayData()
       }
     }).catch(console.error);
   };
+
+
+    var timer = window.setInterval(function()
+{
+ displayData();
+}, 1000);
