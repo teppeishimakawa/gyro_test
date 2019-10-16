@@ -17,6 +17,14 @@ window.addEventListener("deviceorientation", function(e)
     beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
     gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
   });
+
+  if(alpha == 0 && beta == 0 && gamma == 0)
+  {
+  alert("not detect orientation!!")
+  pixel();
+  }
+
+
 }else
 {
 alert("DeviceOrientationEvent not support!!")
@@ -24,11 +32,7 @@ pixel();
 }
 
 
-if(alpha == 0 && beta == 0 && gamma == 0)
- {
- alert("not detect orientation!!")
- pixel();
- }
+
 
 function displayData()
 {
