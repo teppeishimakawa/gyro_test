@@ -23,6 +23,11 @@ alert("DeviceOrientationEvent not support!!")
 }
 
 
+if(alpha == 0 && beta == 0 && gamma == 0)
+ {
+ alert("not detect orientation!!")
+ }
+
 function displayData()
 {
     var txt = document.getElementById("txt1");
