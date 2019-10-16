@@ -5,7 +5,8 @@ var alpha = 0, beta = 0, gamma = 0;
 if (typeof DeviceOrientationEvent.requestPermission === 'function')
 {
 // iOS 13+
-popupOpen("requestPermissionPopup");
+alert(iOS13 + "+");
+//popupOpen("requestPermissionPopup");
 } else
 {
 // non iOS 13+
@@ -45,7 +46,7 @@ function displayData()
   };
 
 
-    var timer = window.setInterval(function()
+var timer = window.setInterval(function()
 {
  displayData();
 }, 1000);
