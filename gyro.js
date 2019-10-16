@@ -1,11 +1,11 @@
 
 var alpha = 0, beta = 0, gamma = 0;
 
-
+//ios13はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
 if (typeof DeviceOrientationEvent.requestPermission === 'function')
 {
 // iOS 13+
-alert("iOS13+");
+document.getElementById("ios13btn").style.visibility ="visible";
 //popupOpen("requestPermissionPopup");
 } else
 {
