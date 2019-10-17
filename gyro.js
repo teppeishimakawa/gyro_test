@@ -8,6 +8,8 @@ var alpha = 0, beta = 0, gamma = 0;
 if(typeof DeviceOrientationEvent.requestPermission === 'function')
 {
 document.getElementById("ios13btn").style.visibility ="visible";
+document.getElementById("left").style.visibility="hidden";
+document.getElementById("right").style.visibility="hidden";
 //alert("ios13");
 }
 
