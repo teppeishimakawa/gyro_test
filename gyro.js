@@ -28,11 +28,10 @@ function()
 
 */
 
-       setTimeout(function()
-      {
+
        pixel();
  　　   //alert("not detect orientation!!")
-　　   },30);
+　
 
 
 /*
