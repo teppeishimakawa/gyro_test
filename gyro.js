@@ -105,7 +105,7 @@ var canvas = document.getElementById('canvas');
     canvas.width=wid;
     canvas.height=hei;
     // そのまま表示すると鏡像にならないので反転させておく
-    canvas.style.transform = 'rotateY(180deg)';
+    //canvas.style.transform = 'rotateY(180deg)';
     video.style.visibility="hidden"
     canvas.style.visibility="visible"
     document.getElementById('video').play();
@@ -119,7 +119,8 @@ const medias =
 {
   audio: false,
   video: {
-    facingMode: "user" // フロントカメラにアクセス
+        facingMode: "environment"
+      //facingMode: "user" // フロントカメラにアクセス
   }
 };
 
