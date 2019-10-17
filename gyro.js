@@ -4,7 +4,8 @@ var alpha = 0, beta = 0, gamma = 0;
 
 
 var getDevice =
-function(){
+function()
+{
     var ua = navigator.userAgent;
     if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0){
         return 'sp';
@@ -15,52 +16,52 @@ function(){
     }
 };
 
-console.log(getDevice());
+//console.log(getDevice());
 
+//大分岐。スマホ、タブレットの場合
 if(getDevice() == 'sp' || getDevice() == 'tab')
 {
-// iOS 13+の場合
-//ios13はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
-if(typeof DeviceOrientationEvent.requestPermission === 'function')
- {
-document.getElementById("ios13btn").style.visibility ="visible";
-
-//alert("ios13");
- }
+  // iOS 13+の場合
+  //ios13はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
+  if(typeof DeviceOrientationEvent.requestPermission === 'function')
+   {
+   document.getElementById("ios13btn").style.visibility ="visible";
+   }
 
 
-//ブラウザがorientation対応の場合
-else if(window.DeviceOrientationEvent)
- {
-window.addEventListener("deviceorientation", function(e)
-  {
-    alpha = e.alpha;  // z軸（表裏）まわりの回転の角度（反時計回りがプラス）
-    beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
-    gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
-  });
-　//ブラウザはgyro対応しているけどPCなどで検知結果0の場合
-  setTimeout(function()
-    {if(alpha == 0 && beta == 0 && gamma == 0)
- 　　 {
- 　　 alert("not detect orientation!!")
- 　　 pixel();
- 　　 }
-　　 },1000);
- }
+  //ブラウザがorientation対応の場合
+  else if(window.DeviceOrientationEvent)
+   {
+  window.addEventListener("deviceorientation", function(e)
+    {
+      alpha = e.alpha;  // z軸（表裏）まわりの回転の角度（反時計回りがプラス）
+      beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
+      gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
+    });
+　  //ブラウザはgyro対応しているけどPCなどで検知結果0の場合
+    setTimeout(function()
+      {if(alpha == 0 && beta == 0 && gamma == 0)
+ 　　   {
+ 　　   alert("not detect orientation!!")
+ 　　   pixel();
+ 　　   }
+　　   },1000);
+    }
 
- //ブラウザがorientation非対応の場合
- else
- {
- alert("DeviceOrientationEvent not support!!")
- pixel();
- }
+ 　　//ブラウザがorientation非対応の場合
+ 　　else
+ 　　{
+ 　　alert("DeviceOrientationEvent not support!!")
+ 　　pixel();
+ 　　}
 
 }
 //pcの場合
 else
 {
  alert("pc!!")
- pixel();
+ document.getElementById("left").style.visibility="visible";
+ document.getElementById("right").style.visibility="visible";
 }
 
 
@@ -160,8 +161,7 @@ navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia |
 
 
 
-if(getDevice() == 'sp' || getDevice() == 'tab')
-{
+
 
 if(navigator.mediaDevices)
  {
@@ -187,11 +187,8 @@ function errorCallback(err) {
 document.getElementById("left").style.visibility="visible";
 document.getElementById("right").style.visibility="visible";
  }
-}else
-{
-document.getElementById("left").style.visibility="visible";
-document.getElementById("right").style.visibility="visible";
-}
+
+
 
     // videoの映像をcanvasに描画する
     function draw()
