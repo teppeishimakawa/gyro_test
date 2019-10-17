@@ -1,16 +1,20 @@
 
+
 var alpha = 0, beta = 0, gamma = 0;
 
+
+// iOS 13+の場合
 //ios13はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
-if (typeof DeviceOrientationEvent.requestPermission === 'function')
+if(typeof DeviceOrientationEvent.requestPermission === 'function')
 {
-// iOS 13+
 document.getElementById("ios13btn").style.visibility ="visible";
 //alert("ios13");
+}
 
-} else if(window.DeviceOrientationEvent)
+
+//orientation検知の場合
+else if(window.DeviceOrientationEvent)
 {
-// non iOS 13+
 document.getElementById("ios13btn").style.visibility ="hidden";
 window.addEventListener("deviceorientation", function(e)
   {
@@ -18,17 +22,18 @@ window.addEventListener("deviceorientation", function(e)
     beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
     gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
   });
-
+　//ブラウザはgyro対応しているけどPCなどで検知結果0の場合
   setTimeout(function()
     {if(alpha == 0 && beta == 0 && gamma == 0)
-  {
-  alert("not detect orientation!!")
-  pixel();
-  }},1000);
+ 　　 {
+ 　　 alert("not detect orientation!!")
+ 　　 pixel();
+ 　　 }
+　　 },1000);
+}
 
-
-
-}else
+//ブラウザがorientation非対応の場合
+else
 {
 alert("DeviceOrientationEvent not support!!")
 pixel();
@@ -119,14 +124,22 @@ const medias =
 };
 
 
-navigator.mediaDevices.getUserMedia
-= navigator.mediaDevices.getUserMedia
-|| navigator.getUserMedia
-|| navigator.mozGetUserMedia
-|| navigator.webkitGetUserMedia
 
 
-if(navigator.mediaDevices.getUserMedia)
+navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
+   getUserMedia: function(c) {
+     return new Promise(function(y, n) {
+       (navigator.mozGetUserMedia ||
+        navigator.webkitGetUserMedia).call(navigator, c, y, n);
+     });
+   }
+} : null);
+
+
+
+
+
+if(navigator.mediaDevices)
 {
 const promise = navigator.mediaDevices.getUserMedia(medias);
 
