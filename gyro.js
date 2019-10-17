@@ -32,7 +32,7 @@ function()
 //1.大分岐。スマホ、タブレットの場合
 if(getDevice() == 'sp' || getDevice() == 'tab')
 {
-  //1-1.iOS 13+の場合
+  //1-1.iOS 13+の場合 -> gyro
   //ios13+はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
   if(typeof DeviceOrientationEvent.requestPermission === 'function')
    {
@@ -40,7 +40,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
    }
 
 
-  //1-2.ブラウザorientation対応の場合
+  //1-2.ブラウザorientation対応の場合 -> gyro
   else if(window.DeviceOrientationEvent)
    {
 
@@ -51,7 +51,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
       gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
     });
 
-　 　　　　　//1-2-1.ios12対応。ブラウザはgyro対応しているけど何らか不具合で検知結果0の場合
+　 　　　　　//1-2-1.ios12対応。ブラウザはgyro対応しているけど何らか不具合で検知結果0の場合 -> pixel compare
       　　　setTimeout(function()
      　　　 {if(alpha == 0 && beta == 0 && gamma == 0)
  　　　　　   {
@@ -62,7 +62,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
 
    }
 
- 　//1-3.ブラウザがorientation非対応の場合
+ 　//1-3.ブラウザがorientation非対応の場合 -> pixel compare
  　else
  　{
  　pixel();
@@ -70,7 +70,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
  　}
 
 }
-//2.大分岐。pcの場合
+//2.大分岐。pcの場合 -> button
 else
 {
  alert("pc!!")
@@ -137,8 +137,8 @@ var hei=window.innerHeight;
 
 var rectX=wid/2;
 var rectY=hei/2;
-var rectWid=10;
-var rectHei=10;
+var rectWid=3;
+var rectHei=3;
 
 //測定精度。4で全pixel解析,64で16pixelごとに解析
 var frame=0;
@@ -185,7 +185,7 @@ navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia |
 
 
 
-
+// -> pixel compare
 if(navigator.mediaDevices)
  {
 
@@ -206,6 +206,7 @@ if(navigator.mediaDevices)
    alert(err);
    };
 
+// -> button
  }else
  {
   document.getElementById("left").style.visibility="visible";
