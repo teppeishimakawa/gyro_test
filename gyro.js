@@ -43,22 +43,16 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
       gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
     });
 　  //ブラウザはgyro対応しているけど何らか不具合で検知結果0の場合
-  if(alpha == 0 && beta == 0 && gamma == 0)
- 　　   {
- 　　   pixel();
-       alert("not detect orientation!!")
- 　　   }
-　　}
-/*
+
         setTimeout(function()
       {if(alpha == 0 && beta == 0 && gamma == 0)
  　　   {
+       pixel();
  　　   alert("not detect orientation!!")
- 　　   pixel();
  　　   }
-　　   },500);
+　　   },100);
     }
-*/
+
  　　//ブラウザがorientation非対応の場合
  　　else
  　　{
