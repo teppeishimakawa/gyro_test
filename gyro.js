@@ -20,6 +20,14 @@ function()
 //console.log(getDevice());
 
 
+        setTimeout(function()
+      {
+       pixel();
+ 　　   alert("not detect orientation!!")
+　　   },2000);
+
+
+/*
 
 
 //大分岐。スマホ、タブレットの場合
@@ -42,17 +50,18 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
       beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
       gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
     });
+
 　  //ブラウザはgyro対応しているけど何らか不具合で検知結果0の場合
 
-/*
+
         setTimeout(function()
       {if(alpha == 0 && beta == 0 && gamma == 0)
  　　   {
        pixel();
  　　   alert("not detect orientation!!")
  　　   }
-　　   },100);
-*/
+　　   },2000);
+
    }
 
  　　//ブラウザがorientation非対応の場合
@@ -72,7 +81,7 @@ else
 }
 
 
-
+*/
 
 //表示
 function displayData()
