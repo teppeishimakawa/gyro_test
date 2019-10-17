@@ -285,12 +285,12 @@ if(navigator.mediaDevices)
 
 setInterval(function()
 {
-        if(count > 100)
+        if(count > 70)
         {
             console.log("ok!");
             document.getElementById("count2").innerHTML="ok!";
             count=0;
-            setTimeout(function(){document.getElementById("count2").innerHTML=""},3000);
+            setTimeout(function(){document.getElementById("count2").innerHTML=""},1000);
         }
 },100);
 
