@@ -17,20 +17,21 @@ function(){
 
 console.log(getDevice());
 
-
+if(getDevice() == 'sp' || getDevice() == 'tab')
+{
 // iOS 13+の場合
 //ios13はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
 if(typeof DeviceOrientationEvent.requestPermission === 'function')
-{
+ {
 document.getElementById("ios13btn").style.visibility ="visible";
 
 //alert("ios13");
-}
+ }
 
 
 //ブラウザがorientation対応の場合
 else if(window.DeviceOrientationEvent)
-{
+ {
 document.getElementById("ios13btn").style.visibility ="hidden";
 window.addEventListener("deviceorientation", function(e)
   {
@@ -46,16 +47,22 @@ window.addEventListener("deviceorientation", function(e)
  　　 pixel();
  　　 }
 　　 },1000);
-}
+ }
 
-//ブラウザがorientation非対応の場合
+ //ブラウザがorientation非対応の場合
+ else
+ {
+ alert("DeviceOrientationEvent not support!!")
+ pixel();
+ }
+
+}
+//pcの場合
 else
 {
-alert("DeviceOrientationEvent not support!!")
-pixel();
+ alert("pc!!")
+ pixel();
 }
-
-
 
 
 function displayData()
