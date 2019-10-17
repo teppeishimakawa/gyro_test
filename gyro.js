@@ -44,6 +44,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
     });
 　  //ブラウザはgyro対応しているけど何らか不具合で検知結果0の場合
 
+/*
         setTimeout(function()
       {if(alpha == 0 && beta == 0 && gamma == 0)
  　　   {
@@ -51,7 +52,8 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
  　　   alert("not detect orientation!!")
  　　   }
 　　   },100);
-    }
+*/
+   }
 
  　　//ブラウザがorientation非対応の場合
  　　else
