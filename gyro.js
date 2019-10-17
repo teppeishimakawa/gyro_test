@@ -32,7 +32,7 @@ function()
       {
        pixel();
  　　   //alert("not detect orientation!!")
-　　   },3000);
+　　   },30);
 
 
 /*
