@@ -154,6 +154,7 @@ var canvas = document.getElementById('canvas');
     //canvas.style.transform = 'rotateY(180deg)';
     video.style.visibility="hidden"
     canvas.style.visibility="visible"
+    //これを入れたら動画canvasに描かれた
     document.getElementById('video').play();
 
 var context = canvas.getContext('2d');
