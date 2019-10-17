@@ -8,8 +8,7 @@ var alpha = 0, beta = 0, gamma = 0;
 if(typeof DeviceOrientationEvent.requestPermission === 'function')
 {
 document.getElementById("ios13btn").style.visibility ="visible";
-document.getElementById("left").style.visibility="hidden";
-document.getElementById("right").style.visibility="hidden";
+
 //alert("ios13");
 }
 
@@ -141,12 +140,9 @@ navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia |
 
 
 
-
-if(navigator.mediaDevices)
+//ここだけpixel compareと違う条件分岐！
+if(navigator.mediaDevices && !window.DeviceOrientationEvent)
 {
-
-document.getElementById("left").style.visibility="hidden";
-document.getElementById("right").style.visibility="hidden";
 
 const promise = navigator.mediaDevices.getUserMedia(medias);
 
