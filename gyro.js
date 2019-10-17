@@ -25,9 +25,10 @@ function()
 
 
 　
+pixel();
 
 
-
+/*
 
 //1.大分岐。スマホ、タブレットの場合
 if(getDevice() == 'sp' || getDevice() == 'tab')
@@ -79,7 +80,7 @@ else
 }
 
 
-
+*/
 
 
 //表示
