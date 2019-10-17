@@ -20,7 +20,7 @@ console.log(getDevice());
 
 // iOS 13+の場合
 //ios13はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
-if(typeof DeviceOrientationEvent.requestPermission === 'function')
+if(typeof DeviceOrientationEvent.requestPermission === 'function' && (getDevice() !== "other"))
 {
 document.getElementById("ios13btn").style.visibility ="visible";
 
