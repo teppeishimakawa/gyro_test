@@ -15,7 +15,7 @@ function(){
     }
 };
 
-console.log(getDevice);
+console.log(getDevice());
 
 
 // iOS 13+の場合
