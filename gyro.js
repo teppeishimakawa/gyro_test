@@ -160,9 +160,11 @@ navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia |
 
 
 
+if(getDevice() == 'sp' || getDevice() == 'tab')
+{
 
 if(navigator.mediaDevices)
-{
+ {
 
 const promise = navigator.mediaDevices.getUserMedia(medias);
 
@@ -180,10 +182,11 @@ function errorCallback(err) {
  };
 
 //ここだけpixel compareと違う！
-}else if(!window.DeviceOrientationEvent)
-{
+ }else
+ {
 document.getElementById("left").style.visibility="visible";
 document.getElementById("right").style.visibility="visible";
+ }
 }else
 {
 document.getElementById("left").style.visibility="visible";
