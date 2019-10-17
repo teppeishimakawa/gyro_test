@@ -138,8 +138,8 @@ var hei=window.innerHeight;
 
 var rectX=wid/2;
 var rectY=hei/2;
-var rectWid=3;
-var rectHei=3;
+var rectWid=5;
+var rectHei=5;
 
 //測定精度。4で全pixel解析,64で16pixelごとに解析
 var frame=0;
@@ -285,7 +285,7 @@ if(navigator.mediaDevices)
 
 setInterval(function()
 {
-        if(count > 50)
+        if(count > 70)
         {
             console.log("ok!");
             document.getElementById("count2").innerHTML="ok!";
