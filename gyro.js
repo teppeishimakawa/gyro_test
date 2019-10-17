@@ -158,6 +158,7 @@ function errorCallback(err) {
   alert(err);
  };
 
+//ここだけpixel compareと違う！
 }else if(!window.DeviceOrientationEvent)
 {
 document.getElementById("left").style.visibility="visible";
