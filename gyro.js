@@ -21,8 +21,6 @@ function()
 
 
 
-/*
-
 
 //大分岐。スマホ、タブレットの場合
 if(getDevice() == 'sp' || getDevice() == 'tab')
@@ -70,9 +68,7 @@ else
  document.getElementById("right").style.visibility="visible";
 }
 
-*/
 
-pixel();
 
 
 //表示
