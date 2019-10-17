@@ -3,6 +3,7 @@
 var alpha = 0, beta = 0, gamma = 0;
 
 
+//使う時はgetDevice()の形式でカッコ付ける
 var getDevice =
 function()
 {
@@ -18,6 +19,11 @@ function()
 
 //console.log(getDevice());
 
+
+
+/*
+
+
 //大分岐。スマホ、タブレットの場合
 if(getDevice() == 'sp' || getDevice() == 'tab')
 {
@@ -29,7 +35,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
    }
 
 
-  //ブラウザがorientation対応の場合
+  //ブラウザorientation対応の場合
   else if(window.DeviceOrientationEvent)
    {
   window.addEventListener("deviceorientation", function(e)
@@ -38,7 +44,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
       beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
       gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
     });
-　  //ブラウザはgyro対応しているけどPCなどで検知結果0の場合
+　  //ブラウザはgyro対応しているけど何らか不具合で検知結果0の場合
     setTimeout(function()
       {if(alpha == 0 && beta == 0 && gamma == 0)
  　　   {
@@ -64,7 +70,12 @@ else
  document.getElementById("right").style.visibility="visible";
 }
 
+*/
 
+pixel();
+
+
+//表示
 function displayData()
 {
     var txt = document.getElementById("txt1");
@@ -92,6 +103,7 @@ function displayData()
   };
 
 
+//表示
 var timer = window.setInterval(function()
 {
  displayData();
@@ -102,7 +114,7 @@ var timer = window.setInterval(function()
 
 
 
-
+//pixel compare
 function pixel()
 {
 
@@ -166,26 +178,27 @@ navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia |
 if(navigator.mediaDevices)
  {
 
-const promise = navigator.mediaDevices.getUserMedia(medias);
+  const promise = navigator.mediaDevices.getUserMedia(medias);
 
-promise.then(successCallback)
-       .catch(errorCallback);
+  promise.then(successCallback)
+         .catch(errorCallback);
 
 
-function successCallback(stream) {
-  video.srcObject = stream;
-  draw();
- };
+  function successCallback(stream)
+   {
+    video.srcObject = stream;
+    draw();
+   };
 
-function errorCallback(err) {
-  alert(err);
- };
+  function errorCallback(err)
+   {
+   alert(err);
+   };
 
-//ここだけpixel compareと違う！
  }else
  {
-document.getElementById("left").style.visibility="visible";
-document.getElementById("right").style.visibility="visible";
+  document.getElementById("left").style.visibility="visible";
+  document.getElementById("right").style.visibility="visible";
  }
 
 
