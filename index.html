@@ -12,6 +12,10 @@
 <body>
 <button id="ios13btn" onclick="requestPermission()" style="visibility:hidden;">ボタンを押して モーションの利用を許可してください (iOS 13+) </button>
 <div id="txt1"></div>
+<input type="button" id="left" value="left" size="100" style="visibility: hidden;">
+<input type="button" id="right" value="right" size="100" style="visibility: hidden;">
+<div id="count"></div>
+<div id="count2"></div>
 
 
 
@@ -20,16 +24,6 @@
       <canvas id="canvas"></canvas>
       <video autoplay muted playsinline id="video" ></video>
     </div>
-
-
-<!--左ボタン群のレイヤー-->
-<div id="div1">
-<input type="button" id="left" value="left" size="100" style="visibility: hidden;">
-<input type="button" id="right" value="right" size="100" style="visibility: hidden;">
-<div id="count"></div>
-<div id="count2"></div>
-</div>
-
 
 
 
