@@ -32,7 +32,6 @@ document.getElementById("ios13btn").style.visibility ="visible";
 //ブラウザがorientation対応の場合
 else if(window.DeviceOrientationEvent)
  {
-document.getElementById("ios13btn").style.visibility ="hidden";
 window.addEventListener("deviceorientation", function(e)
   {
     alpha = e.alpha;  // z軸（表裏）まわりの回転の角度（反時計回りがプラス）
