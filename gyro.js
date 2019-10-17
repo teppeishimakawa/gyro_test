@@ -49,7 +49,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
  　　   alert("not detect orientation!!")
  　　   pixel();
  　　   }
-　　   },1500);
+　　   },500);
     }
 
  　　//ブラウザがorientation非対応の場合
