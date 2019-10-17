@@ -7,6 +7,7 @@ if (typeof DeviceOrientationEvent.requestPermission === 'function')
 // iOS 13+
 document.getElementById("ios13btn").style.visibility ="visible";
 //alert("ios13");
+
 } else if(window.DeviceOrientationEvent)
 {
 // non iOS 13+
@@ -18,11 +19,13 @@ window.addEventListener("deviceorientation", function(e)
     gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
   });
 
-  if(alpha == 0 && beta == 0 && gamma == 0)
+  setTimeout(function()
+    {if(alpha == 0 && beta == 0 && gamma == 0)
   {
   alert("not detect orientation!!")
   pixel();
-  }
+  }},1000);
+
 
 
 }else
