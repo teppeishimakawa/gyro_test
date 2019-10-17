@@ -12,7 +12,7 @@ document.getElementById("ios13btn").style.visibility ="visible";
 }
 
 
-//orientation検知の場合
+//ブラウザがorientation対応の場合
 else if(window.DeviceOrientationEvent)
 {
 document.getElementById("ios13btn").style.visibility ="hidden";
@@ -141,6 +141,10 @@ navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia |
 
 if(navigator.mediaDevices)
 {
+
+document.getElementById("left").style.visibility="hidden";
+document.getElementById("right").style.visibility="hidden";
+
 const promise = navigator.mediaDevices.getUserMedia(medias);
 
 promise.then(successCallback)
@@ -156,6 +160,10 @@ function errorCallback(err) {
   alert(err);
  };
 
+}else
+{
+document.getElementById("left").style.visibility="visible";
+document.getElementById("right").style.visibility="visible";
 }
 
     // videoの映像をcanvasに描画する
