@@ -285,7 +285,7 @@ if(navigator.mediaDevices)
 
 setInterval(function()
 {
-        if(count > 70)
+        if(count > 50)
         {
             console.log("ok!");
             document.getElementById("count2").innerHTML="ok!";
