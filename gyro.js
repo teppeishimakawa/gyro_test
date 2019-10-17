@@ -20,17 +20,9 @@ function()
 //console.log(getDevice());
 
 
-
-        setTimeout(function()
- 　　   {
-       pixel();
- 　　   alert("not detect orientation!!")
- 　　   }
-　　   ,2000);
 　
 
 
-/*
 
 
 //大分岐。スマホ、タブレットの場合
@@ -63,7 +55,7 @@ if(getDevice() == 'sp' || getDevice() == 'tab')
        pixel();
  　　   alert("not detect orientation!!")
  　　   }
-　　   },2000);
+　　   },1000);
 
    }
 
@@ -84,7 +76,8 @@ else
 }
 
 
-*/
+
+
 
 //表示
 function displayData()
