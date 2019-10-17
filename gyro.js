@@ -3,16 +3,20 @@
 var alpha = 0, beta = 0, gamma = 0;
 
 
-//使う時はgetDevice()の形式でカッコ付ける
+//getDeviceは関数なので、実行時はgetDevice()の形式でカッコ付ける
 var getDevice =
 function()
 {
     var ua = navigator.userAgent;
-    if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0){
+
+    if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0)
+    {
         return 'sp';
-    }else if(ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0){
+    }else if(ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0)
+    {
         return 'tab';
-    }else{
+    }else
+    {
         return 'other';
     }
 };
@@ -25,49 +29,48 @@ function()
 
 
 
-//大分岐。スマホ、タブレットの場合
+//1.大分岐。スマホ、タブレットの場合
 if(getDevice() == 'sp' || getDevice() == 'tab')
 {
-  // iOS 13+の場合
-  //ios13はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
+  //1-1.iOS 13+の場合
+  //ios13+はDeviceOrientationEvent.requestPermissionがfunctionとして用意されてる
   if(typeof DeviceOrientationEvent.requestPermission === 'function')
    {
    document.getElementById("ios13btn").style.visibility ="visible";
    }
 
 
-  //ブラウザorientation対応の場合
+  //1-2.ブラウザorientation対応の場合
   else if(window.DeviceOrientationEvent)
    {
-  window.addEventListener("deviceorientation", function(e)
+
+    window.addEventListener("deviceorientation", function(e)
     {
       alpha = e.alpha;  // z軸（表裏）まわりの回転の角度（反時計回りがプラス）
       beta  = e.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
       gamma = e.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
     });
 
-　  //ブラウザはgyro対応しているけど何らか不具合で検知結果0の場合
-
-
-        setTimeout(function()
-      {if(alpha == 0 && beta == 0 && gamma == 0)
- 　　   {
-       pixel();
- 　　   alert("not detect orientation!!")
- 　　   }
-　　   },1000);
+　 　　　　　//1-2-1.ios12対応。ブラウザはgyro対応しているけど何らか不具合で検知結果0の場合
+      　　　setTimeout(function()
+     　　　 {if(alpha == 0 && beta == 0 && gamma == 0)
+ 　　　　　   {
+    　　　   pixel();
+ 　　　　　   alert("not detect orientation!!")
+ 　　　　　   }
+　　　　　   },1000);
 
    }
 
- 　　//ブラウザがorientation非対応の場合
- 　　else
- 　　{
- 　　pixel();
-    alert("DeviceOrientationEvent not support!!")
- 　　}
+ 　//1-3.ブラウザがorientation非対応の場合
+ 　else
+ 　{
+ 　pixel();
+   alert("DeviceOrientationEvent not support!!")
+ 　}
 
 }
-//pcの場合
+//2.大分岐。pcの場合
 else
 {
  alert("pc!!")
@@ -89,10 +92,13 @@ function displayData()
 }
 
 
+
+
   // for ios13
   function requestPermission()
   {
-    DeviceOrientationEvent.requestPermission().then(function(response){
+    DeviceOrientationEvent.requestPermission().then(function(response)
+    {
       if (response === 'granted')
       {
         window.addEventListener("deviceorientation", function(e)
