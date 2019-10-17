@@ -184,6 +184,10 @@ function errorCallback(err) {
 {
 document.getElementById("left").style.visibility="visible";
 document.getElementById("right").style.visibility="visible";
+}else
+{
+document.getElementById("left").style.visibility="visible";
+document.getElementById("right").style.visibility="visible";
 }
 
     // videoの映像をcanvasに描画する
