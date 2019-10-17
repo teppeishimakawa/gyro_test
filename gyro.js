@@ -140,8 +140,7 @@ navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia |
 
 
 
-//ここだけpixel compareと違う条件分岐！
-if(navigator.mediaDevices && !window.DeviceOrientationEvent)
+if(navigator.mediaDevices)
 {
 
 const promise = navigator.mediaDevices.getUserMedia(medias);
@@ -159,7 +158,7 @@ function errorCallback(err) {
   alert(err);
  };
 
-}else
+}else if(!window.DeviceOrientationEvent)
 {
 document.getElementById("left").style.visibility="visible";
 document.getElementById("right").style.visibility="visible";
