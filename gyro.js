@@ -227,8 +227,8 @@ document.getElementById("right").style.visibility="visible";
                     b: data_old[i + 2]
                 };
 
-                console.log(target);
-                console.log(old);
+                //console.log(target);
+                //console.log(old);
 
             // 閾値より大きい場合、count++
             if (getColorDistance(old, target) > colorDistance)
