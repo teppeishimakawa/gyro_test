@@ -6,14 +6,25 @@
 
 
 <style>
-
+.btn
+{
+ width:150px;
+ height:80px;
+ line-height:80px;
+ text-align:center;
+ display:inline-block;
+ border-radius:5px;
+ text-decoration:none;
+ margin:5px;
+}
 </style>
+
 </head>
 <body>
 <button id="ios13btn" onclick="requestPermission()" style="visibility:hidden;">ボタンを押して モーションの利用を許可してください (iOS 13+) </button>
 <div id="txt1"></div>
-<input type="button" id="left" value="left" size="100" style="visibility: hidden;">
-<input type="button" id="right" value="right" size="100" style="visibility: hidden;">
+<input type="button" id="left" value="left" style="visibility: hidden;" class="btn">
+<input type="button" id="right" value="right" style="visibility: hidden;" class="btn">
 <div id="count"></div>
 <div id="count2"></div>
 
